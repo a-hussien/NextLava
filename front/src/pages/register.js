@@ -8,6 +8,7 @@ import Label from '@/components/Label'
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useState } from 'react'
+import NavLink from '@/components/NavLink'
 
 const Register = () => {
     const { register } = useAuth({
@@ -34,7 +35,7 @@ const Register = () => {
     }
 
     return (
-        <GuestLayout>
+        <GuestLayout title='Register'>
             <AuthCard
                 logo={
                     <Link href="/">
@@ -118,14 +119,19 @@ const Register = () => {
                         />
                     </div>
 
-                    <div className="flex items-center justify-end mt-4">
-                        <Link
-                            href="/login"
-                            className="underline text-sm text-gray-600 hover:text-gray-900">
-                            Already registered?
-                        </Link>
+                    <div className="flex justify-between items-center mt-4">
+                        <NavLink href="/">
+                            Back
+                        </NavLink>
+                        <div className="flex items-center justify-end">
+                            <Link
+                                href="/login"
+                                className="underline text-sm text-gray-600 hover:text-gray-900">
+                                Already registered?
+                            </Link>
 
-                        <Button className="ml-4">Register</Button>
+                            <Button className="ml-4">Register</Button>
+                        </div>
                     </div>
                 </form>
             </AuthCard>

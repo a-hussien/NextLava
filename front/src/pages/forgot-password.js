@@ -27,7 +27,7 @@ const ForgotPassword = () => {
     }
 
     return (
-        <GuestLayout>
+        <GuestLayout title='Forgot Password'>
             <AuthCard
                 logo={
                     <Link href="/">

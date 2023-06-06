@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
+import NavLink from '@/components/NavLink'
 
 const Login = () => {
     const router = useRouter()
@@ -27,7 +28,7 @@ const Login = () => {
 
     useEffect(() => {
         if (router.query.reset?.length > 0 && errors.length === 0) {
-            setStatus(atob(router.query.reset))
+            setStatus(router.query.reset)
         } else {
             setStatus(null)
         }
@@ -46,7 +47,7 @@ const Login = () => {
     }
 
     return (
-        <GuestLayout>
+        <GuestLayout title='Login'>
             <AuthCard
                 logo={
                     <Link href="/">
@@ -115,7 +116,11 @@ const Login = () => {
                         </label>
                     </div>
 
-                    <div className="flex items-center justify-end mt-4">
+                    <div className="flex justify-between items-center mt-4">
+                    <NavLink href="/">
+                        Back
+                    </NavLink>
+                    <div className="flex items-center justify-end">
                         <Link
                             href="/forgot-password"
                             className="underline text-sm text-gray-600 hover:text-gray-900">
@@ -123,6 +128,7 @@ const Login = () => {
                         </Link>
 
                         <Button className="ml-3">Login</Button>
+                    </div>
                     </div>
                 </form>
             </AuthCard>

@@ -15,7 +15,7 @@ const VerifyEmail = () => {
     const [status, setStatus] = useState(null)
 
     return (
-        <GuestLayout>
+        <GuestLayout title='Email Verification'>
             <AuthCard
                 logo={
                     <Link href="/">
