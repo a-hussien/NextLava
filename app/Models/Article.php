@@ -19,7 +19,7 @@ class Article extends Model
     ];
 
     protected $casts = [
-        'auther_id' => 'integer',
+        'author_id' => 'integer',
     ];
 
     public function author()

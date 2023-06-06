@@ -14,10 +14,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = ArticlesResource::collection(Article::with('author')
-                ->latest()
-                ->get()
-            );
+        $articles = ArticlesResource::collection(Article::latest()->get());
 
         return response()->json([
             'status' => 'Successful Request',
